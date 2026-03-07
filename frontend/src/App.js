@@ -1,9 +1,7 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { apiFetch } from "./api/index";
-
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Navbar from "./components/Navbar";
@@ -13,19 +11,15 @@ import AdminDashboard from "./components/AdminDashboard";
 import AdminProduct from "./components/AdminProducts";
 import AdminOrders, { MyOrders } from "./components/AdminOrders";
 import AdminUsers from "./components/AdminUsers";
-
 function AppShell() {
   const { user } = useAuth();
   const isAdmin = user?.role === "admin";
   const [page, setPage] = useState(isAdmin ? "admin-overview" : "dashboard");
   const [orders, setOrders] = useState([]);
-
   useEffect(() => {
     apiFetch("/orders").then(setOrders).catch(() => {});
   }, [page]);
-
   const pendingCount = orders.filter((o) => o.status === "pending").length;
-
   const renderPage = () => {
     switch (page) {
       case "dashboard":      return <Dashboard />;
@@ -38,7 +32,6 @@ function AppShell() {
       default:               return <Dashboard />;
     }
   };
-
   return (
     <div className="layout">
       <Navbar page={page} setPage={setPage} pendingCount={pendingCount} />
@@ -50,16 +43,13 @@ function AppShell() {
 function App() {
   const { user } = useAuth();
   const [mode, setMode] = useState("login");
-
   if (!user) {
     return mode === "login"
       ? <Login onSwitch={() => setMode("register")} />
       : <Register onSwitch={() => setMode("login")} />;
   }
-
   return <AppShell />;
 }
-
 export default function Root() {
   return (
     <AuthProvider>
