@@ -10,6 +10,7 @@ export function AuthProvider({ children }) {
       return u ? JSON.parse(u) : null;
     } catch {
       return null;
+      
     }
   });
   const login = (u) => {
