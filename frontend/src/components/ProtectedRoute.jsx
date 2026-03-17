@@ -20,6 +20,7 @@ export default function ProtectedRoute({ children, adminOnly = false }) {
         <div className="empty-title">Access denied</div>
         <div className="empty-sub">This page is for admins only.</div>
       </div>
+      
     );
   }
 
