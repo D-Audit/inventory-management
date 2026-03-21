@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
 import { apiFetch } from "../api/index";
 import AddProduct from "./AddProduct";
-
 function Loading() {
   return <div className="spinner-wrap"><div className="spinner" /> Loading...</div>;
 }
-
 export default function AdminProducts() {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
   const [editProduct, setEditProduct] = useState(null);
-
   const load = () => {
     setLoading(true);
     apiFetch("/products")
@@ -27,7 +24,6 @@ export default function AdminProducts() {
     try { await apiFetch(`/products/${id}`, { method: "DELETE" }); load(); }
     catch (e) { alert(e.message); }
   };
-
   return (
     <div>
       <div className="page-header">
