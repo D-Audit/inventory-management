@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { apiFetch } from "../api/index";
-
+import { apiFetch } from "../api/index";/
 function Loading() {
   return <div className="spinner-wrap"><div className="spinner" /> Loading...</div>;
 }
