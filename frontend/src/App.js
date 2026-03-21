@@ -39,7 +39,6 @@ function AppShell() {
     </div>
   );
 }
-
 function App() {
   const { user } = useAuth();
   const [mode, setMode] = useState("login");
