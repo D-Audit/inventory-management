@@ -1,19 +1,15 @@
 import { useAuth } from "../context/AuthContext";
-
 export default function Navbar({ page, setPage, pendingCount }) {
   const { user, logout } = useAuth();
   const isAdmin = user?.role === "admin";
-
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
         <div className="sidebar-logo-box">🏛️</div>
         <div className="sidebar-logo-name">Vault<span>IQ</span></div>
       </div>
-
       <div className="nav-label">Main</div>
       {[
-        
         { id: "dashboard", icon: "⊞", label: "Dashboard" },
         { id: "products", icon: "◈", label: "Products" },
         { id: "orders", icon: "◎", label: "My Orders", badge: pendingCount || 0 },
@@ -24,7 +20,6 @@ export default function Navbar({ page, setPage, pendingCount }) {
           {n.badge > 0 && <span className="nav-badge">{n.badge}</span>}
         </button>
       ))}
-
       {isAdmin && (
         <>
           <div className="nav-divider" />
@@ -42,7 +37,6 @@ export default function Navbar({ page, setPage, pendingCount }) {
           ))}
         </>
       )}
-
       <div className="sidebar-footer">
         <div className="user-card">
           <div className="user-avatar">
