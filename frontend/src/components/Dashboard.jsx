@@ -25,7 +25,7 @@ export default function Dashboard() {
   return (
     <div>
       <div className="page-header">
-        <div>
+        <div>frontend/src/components/AdminDashboard.jsx
           <div className="page-title">Dashboard</div>
           <div className="page-sub">Welcome back, {user?.username}</div>
         </div>
