@@ -37,6 +37,7 @@ export default function AddProduct({ onClose, onSaved, editProduct = null }) {
     } catch (e) {
       setErr(e.message);
     } finally {
+      
       setSaving(false);
     }
   };
@@ -47,10 +48,12 @@ export default function AddProduct({ onClose, onSaved, editProduct = null }) {
         <label className="form-label">Name *</label>
         <input className="form-input" placeholder="Product name" value={form.name} onChange={set("name")} />
       </div>
+
       <div className="form-group">
         <label className="form-label">SKU *</label>
         <input className="form-input" placeholder="SKU-001" value={form.sku} onChange={set("sku")} />
       </div>
+
       <div className="form-grid-2">
         <div className="form-group">
           <label className="form-label">Price *</label>
