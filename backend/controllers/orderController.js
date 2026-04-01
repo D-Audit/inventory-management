@@ -26,9 +26,7 @@ exports.createOrder = async (req , res) => {
             user: req.user.id,
             products,
          });
-
          res.status(201).json(order);
-        
     } catch(err) {
         res.status(500).json({message:err.message});
 
