@@ -3,7 +3,7 @@ const auth = require("../middleware/auth");
 const admin = require("../middleware/admin");
 const User = require("../models/user");
 const router = express.Router();
-const { register, login} = require("../controllers/authController");
+const { register, login} = require("../controllers/authControllers");
 router.post("/register",register);
 router.post("/login",login);
 router.get("/protected",auth, (req,res) => {
